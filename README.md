@@ -1,1 +1,1 @@
-Here are the assignment projects that I have done in my courses
+The assignment projects that I have done in my courses
