@@ -1,1 +1,1 @@
-Here are a list of projects that in machine learning.
+Here are a list of projects that I did in machine learning.
