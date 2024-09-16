@@ -59,10 +59,10 @@ public class WordUtilities {
 		if (listOfWords.size() == 0) return -1;
 		
 		// otherwise, recursively perform binary search to find target word
-		// return binarySearchRecurse(listOfWords, target, 0, listOfWords.size() - 1);
+		return binarySearchRecurse(listOfWords, target, 0, listOfWords.size() - 1);
 		
 		// otherwise, iteratively perform binary search to find target word
-		return binarySearchIterative(listOfWords, target); 
+		// return binarySearchIterative(listOfWords, target); 
 	}
 	
 	/**
@@ -129,58 +129,6 @@ public class WordUtilities {
 		// if target not found in list return negative number
 		return -1;
 	}
-	
-	/**
-	 *	Determines if a word's characters match a group of letters
-	 *	@param word		the word to check
-	 *	@param letters	the letters
-	 *	@return			true if the word's chars match; false otherwise
-	 */
-	private boolean wordMatch(String word, String letters) {
-		// if the word is longer than letters return false
-		if (word.length() > letters.length()) return false;
-		
-		// while there are still characters in word, check each word character
-		// with letters
-		while (word.length() > 0) {
-			// using the first character in word, find the character's index inside letters
-			// and ignore the case
-			int index = letters.toLowerCase().indexOf(Character.toLowerCase(word.charAt(0)));
-			// if the word character is not in letters, then return false
-			if (index < 0) return false;
-			
-			// remove character from word and letters
-			word = word.substring(1);
-			letters = letters.substring(0, index) + letters.substring(index + 1);
-		}
-		// all word letters were found in letters
-		return true;
-	}
-	
-	/**
-	 *	finds all words that match some or all of a group of alphabetic characters
-	 *	Precondition: letters can only contain alphabetic characters a-z and A-Z
-	 *	@param letters		group of alphabetic characters
-	 *	@return				an ArrayList of all the words that match some or all
-	 *						of the characters in letters
-	 */
-	public ArrayList<String> allWords(String letters) {
-		ArrayList<String> wordsFound = new ArrayList<String>();
-		// check each word in the database with the letters
-		for (String word: words)
-			if (wordMatch(word, letters))
-				wordsFound.add(word);
-		return wordsFound;
-	}
-	
-	/**
-	 *	Sort the words in the database
-	 */
-	public void sortWords() {
-		SortMethods sm = new SortMethods();
-		sm.mergeSort(words);
-	}
-
 	
 	/********************************************************************/
 	/************************* Test program *****************************/
