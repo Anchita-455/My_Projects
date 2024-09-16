@@ -1,3 +1,0 @@
-Troy,10
-Billy,5
-Roger,0
